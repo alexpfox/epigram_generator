@@ -1,0 +1,41 @@
+<!doctype html>
+<title>Hello from Flask</title>
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<div class="form">
+    <select name="author">
+        <form>
+            <option value="Wilde">Oscar Wilde</option>
+            <option value="Frost">Robert Frost</option>
+            <option value="Kaur">Rupi Kaur</option>
+            <option value="Eliot">T.S. Eliot</option>
+            <option value="Shakespeare">William Shakespeare</option>
+        </form>
+    </select>
+
+    <p>Enter a seed string: </p>
+    
+    <input type="text" name="seed">
+    <input type="submit">
+    
+</div>
+
+{% if poem %}
+
+<div class=container4 p>
+
+    <p>
+        Here's what <i>{{ author }}</i> came up with for you.... 
+    </p>
+
+    <p>
+        {% for line in poem %}
+            {{ line }}<br>
+        {% endfor %}
+    </p>   
+</div>
+
+{% endif %}
