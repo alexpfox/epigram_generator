@@ -9,7 +9,7 @@ def generate(author, seed=''):
     if author == 'Wilde':
         textgen = textgenrnn(weights_path='wilde_weights_e13_bi.hdf5')
         #print('Generating...')
-        lines = textgen.generate(n=2, prefix=seed, temperature=0.4, return_as_list=True)
+        lines = textgen.generate(n=1, prefix=seed, temperature=0.4, return_as_list=True)
     elif author == 'Frost':
         textgen = textgenrnn(weights_path='frost_weights_5.hdf5')
         #print('Generating...')

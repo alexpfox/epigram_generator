@@ -1,41 +1,39 @@
 <!doctype html>
 <title>Hello from Flask</title>
-
 <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
-
-<div class="form">
-    <select name="author">
+<body>
+    <div class="wrapper">
+    <div class="form">
         <form>
-            <option value="Wilde">Oscar Wilde</option>
-            <option value="Frost">Robert Frost</option>
-            <option value="Kaur">Rupi Kaur</option>
-            <option value="Eliot">T.S. Eliot</option>
-            <option value="Shakespeare">William Shakespeare</option>
+            <select name="author">
+                <option value="Wilde">Oscar Wilde</option>
+                <option value="Frost">Robert Frost</option>
+                <option value="Kaur">Rupi Kaur</option>
+                <option value="Eliot">T.S. Eliot</option>
+                <option value="Shakespeare">William Shakespeare</option>
+            </select>
+
+            <div class="form-label">
+                Enter a seed string: 
+            </div>
+            <input type="text" name="seed">
+            <input type="submit">
         </form>
-    </select>
+    </div>
 
-    <p>Enter a seed string: </p>
-    
-    <input type="text" name="seed">
-    <input type="submit">
-    
-</div>
+    {% if poem %}
+    <div class="poem">
+        <div class="poem-title">
+            Here's what <i>{{ author }}</i> came up with for you....  <br>
+        </div>
 
-{% if poem %}
-
-<div class=container4 p>
-
-    <p>
-        Here's what <i>{{ author }}</i> came up with for you.... 
-    </p>
-
-    <p>
-        {% for line in poem %}
-            {{ line }}<br>
-        {% endfor %}
-    </p>   
-</div>
-
-{% endif %}
+        <div class="poem-lines">
+            {% for line in poem %}
+                <div class="poem-line">{{ line }} <br><br> </div>
+            {% endfor %}
+        </div>   
+    </div>
+    {% endif %}
+</body>
