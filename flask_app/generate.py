@@ -11,7 +11,7 @@ def generate(author, seed=''):
         #print('Generating...')
         lines = textgen.generate(n=1, prefix=seed, temperature=0.4, return_as_list=True)
     elif author == 'Frost':
-        textgen = textgenrnn(weights_path='frost_weights_5.hdf5')
+        textgen = textgenrnn(weights_path='frost_weights_e15_bi_e_300.hdf5')
         #print('Generating...')
         lines = textgen.generate(n=3, prefix=seed, temperature=0.4, return_as_list=True)
     elif author == 'Kaur':
@@ -25,7 +25,7 @@ def generate(author, seed=''):
     elif author == 'Shakespeare':
         textgen = textgenrnn(weights_path='shakespeare_weights_e17_bi.hdf5')
         #print('Generating...')
-        lines = textgen.generate(n=3, prefix=seed, temperature=0.4, return_as_list=True)
+        lines = textgen.generate(n=4, prefix=seed, temperature=0.4, return_as_list=True)
 
         #lines = #process out extra punctuation at the end of the quote
 
